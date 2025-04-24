@@ -1,0 +1,5 @@
+const used* = "226"
+const ok* = "200"
+const notFound* = "404"
+const notAuth* = "401"
+const badReq* = "400"

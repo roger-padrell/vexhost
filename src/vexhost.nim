@@ -1,5 +1,46 @@
-# This is just an example to get you started. A typical binary package
-# uses this file as the main entry point of the application.
+import fileManage, types, aes, jester, jsony, codes, repo, commit, strutils, clone
 
-when isMainModule:
-  echo("Hello, World!")
+const newUserKey = "new user.usernew"
+
+routes:
+    get "/":
+        resp "vexhost"
+
+    post "/usr":
+        try:
+            let decr = aes.decryptData(request.body, newUserKey);
+            let js = decr.fromJson(User)
+            if getUserFile(js.username).id != "404":
+                resp used
+            else:
+                # Not used
+                setUserFile(js.username, js)
+                resp ok
+        except:
+            resp badReq
+
+    post "/new/@username/@reponame":
+        try:
+            let decr = aes.decryptData(request.body, getUserFile(@"username").id);
+            let js = decr.fromJson(RepoRequest)
+            resp newRepo(js)
+        except:
+            resp badReq
+
+    post "/com/@username/@reponame":
+        try:
+            let decr = aes.decryptData(request.body, getUserFile(@"username").id);
+            let js = decr.fromJson(CommitRequest)
+            resp commit(js)
+        except:
+            resp badReq
+
+    get "/clone/@username/@reponame/?@version?":
+        try:
+            var v = @"version"
+            if @"version" == "":
+                v = "main.lts";
+            let ob: CloneRequest = CloneRequest(user: @"username", repo: @"reponame", version: v.split(".")[1], branch: v.split(".")[0])
+            resp clone(ob)
+        except:
+            resp badReq
