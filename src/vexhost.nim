@@ -1,4 +1,4 @@
-import fileManage, types, aes, jester, jsony, codes, repo, commit, strutils, clone
+import fileManage, types, aes, jester, jsony, codes, repo, commit, strutils, clone, auth
 
 const newUserKey = "new user.usernew"
 
@@ -42,5 +42,22 @@ routes:
                 v = "main.lts";
             let ob: CloneRequest = CloneRequest(user: @"username", repo: @"reponame", version: v.split(".")[1], branch: v.split(".")[0])
             resp clone(ob)
+        except:
+            resp badReq
+
+    get "/data/@username/@reponame":
+        try:
+            resp $(getRepoFile(@"username",@"reponame").toJson())
+        except:
+            resp badReq
+
+    post "/auth":
+        try:
+            let decr = aes.decryptData(request.body, newUserKey);
+            let js = decr.fromJson(Auth)
+            if auth(js):
+                resp ok;
+            else:
+                resp notAuth;
         except:
             resp badReq
