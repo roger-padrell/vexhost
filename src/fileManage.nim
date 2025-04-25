@@ -1,9 +1,15 @@
 import os, jsony, types, codes
 
+proc createUserDir*(username: string) = 
+    discard existsOrCreateDir(getAppDir()&"/"&username)
+
+proc createRepoDir*(username: string, reponame: string) = 
+    createUserDir(username)
+    discard existsOrCreateDir(getAppDir()&"/"&username&"/"&reponame)
+
 proc getUserFile*(username: string): User = 
     let path = getAppDir()&"/"&username&"/usr.json";
     if not fileExists(path):
-        echo "Error: User does not exist"
         return User(id: notFound)
     else:
         return readFile(path).fromJson(User)

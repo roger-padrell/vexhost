@@ -14,6 +14,7 @@ proc newRepo*(data: RepoRequest): string =
     
     # Create repo file
     var f = RepoFile(owner: usr, name: data.repo.name, structure: {"main": RepoBranch(name: "main")}.toTable)
+    createRepoDir(data.repo.owner, data.repo.name)
     let createOut = createRepoFile(f)
     
     return createOut;

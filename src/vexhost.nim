@@ -14,6 +14,7 @@ routes:
                 resp used
             else:
                 # Not used
+                createUserDir(js.username)
                 setUserFile(js.username, js)
                 resp ok
         except:
