@@ -20,7 +20,6 @@ type
         name*: string
     
     User* = object
-        mail*: string
         username*: string
         id*: string
 
