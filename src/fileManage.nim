@@ -21,9 +21,6 @@ proc setUserFile*(username: string, data: User) =
 
 proc createRepoFile*(r: RepoFile): string {.gcsafe.} = 
     let dir = getAppDir()&"/"&r.owner.username&"/"&r.name&"/";
-    if dirExists(dir):
-        return used;
-    createDir(dir);
     # Create repo.json
     writeFile(dir&"repo.json", $(r.toJson()))
     return ok;
