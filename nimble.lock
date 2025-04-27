@@ -11,6 +11,62 @@
         "sha1": "54314dceabb06b20908ecb0f2c007e9ff3aaa054"
       }
     },
+    "brotli": {
+      "version": "0.1.0",
+      "vcsRevision": "685b95113341555443835d0363a1889fbc3a72ff",
+      "url": "https://github.com/neroist/brotli",
+      "downloadMethod": "git",
+      "dependencies": [],
+      "checksums": {
+        "sha1": "5d780b0ab72f9bca7b9ff5013caedc7f498afac2"
+      }
+    },
+    "results": {
+      "version": "0.5.1",
+      "vcsRevision": "df8113dda4c2d74d460a8fa98252b0b771bf1f27",
+      "url": "https://github.com/arnetheduck/nim-results",
+      "downloadMethod": "git",
+      "dependencies": [],
+      "checksums": {
+        "sha1": "a9c011f74bc9ed5c91103917b9f382b12e82a9e7"
+      }
+    },
+    "unittest2": {
+      "version": "0.2.3",
+      "vcsRevision": "845b6af28b9f68f02d320e03ad18eccccea7ddb9",
+      "url": "https://github.com/status-im/nim-unittest2",
+      "downloadMethod": "git",
+      "dependencies": [],
+      "checksums": {
+        "sha1": "6936b4e4676c9b37537d93f31cb8fc46f4ebaacb"
+      }
+    },
+    "stew": {
+      "version": "0.2.0",
+      "vcsRevision": "79e4fa5a9d3374db17ed63622714d3e1094c7f34",
+      "url": "https://github.com/status-im/nim-stew",
+      "downloadMethod": "git",
+      "dependencies": [
+        "results",
+        "unittest2"
+      ],
+      "checksums": {
+        "sha1": "26d477c735913b7daa1dab53dd74803c88209634"
+      }
+    },
+    "faststreams": {
+      "version": "0.3.0",
+      "vcsRevision": "2b08c774afaafd600cf4c6f994cf78b8aa090c0c",
+      "url": "https://github.com/status-im/nim-faststreams",
+      "downloadMethod": "git",
+      "dependencies": [
+        "stew",
+        "unittest2"
+      ],
+      "checksums": {
+        "sha1": "ec2d92793e7d1bd0c30ab29c0d20548a054cfa8e"
+      }
+    },
     "httpbeast": {
       "version": "0.4.2",
       "vcsRevision": "75008aaba497479df4023d52880086deae6385e3",
@@ -63,6 +119,58 @@
       "dependencies": [],
       "checksums": {
         "sha1": "522cc7c569377da0323b8cb08c62c751cf925541"
+      }
+    },
+    "serialization": {
+      "version": "0.2.6",
+      "vcsRevision": "2086c99608b4bf472e1ef5fe063710f280243396",
+      "url": "https://github.com/status-im/nim-serialization",
+      "downloadMethod": "git",
+      "dependencies": [
+        "faststreams",
+        "unittest2",
+        "stew"
+      ],
+      "checksums": {
+        "sha1": "26deca68e1a027be90e2bf2856e25aa819101d1e"
+      }
+    },
+    "simplediff": {
+      "version": "0.1.0",
+      "vcsRevision": "e1ba26d407c7daeee0656d4ddb8ed381f685b7f2",
+      "url": "https://git.sr.ht/~reesmichael1/nim-simplediff",
+      "downloadMethod": "git",
+      "dependencies": [],
+      "checksums": {
+        "sha1": "6e73642c85ca219b169bd30fb0bf0a787ed22370"
+      }
+    },
+    "toml_serialization": {
+      "version": "0.2.14",
+      "vcsRevision": "fea85b27f0badcf617033ca1bc05444b5fd8aa7a",
+      "url": "https://github.com/status-im/nim-toml-serialization",
+      "downloadMethod": "git",
+      "dependencies": [
+        "serialization",
+        "stew"
+      ],
+      "checksums": {
+        "sha1": "5a6d4aceaecb2797e4a95c62197788a39d537775"
+      }
+    },
+    "vexbox": {
+      "version": "0.2.2",
+      "vcsRevision": "19ece8bf98dd7f7ebc217d68ea3864f7da51ff97",
+      "url": "https://github.com/roger-padrell/vexbox",
+      "downloadMethod": "git",
+      "dependencies": [
+        "simplediff",
+        "brotli",
+        "jsony",
+        "toml_serialization"
+      ],
+      "checksums": {
+        "sha1": "ec8486f1cac58ef341a1a17a041a46034495c4de"
       }
     }
   },
