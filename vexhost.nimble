@@ -11,7 +11,7 @@ bin           = @["vexhost"]
 # Dependencies
 
 requires "nim >= 2.2.2"
-requires "vexbox >= 0.2.1"
+requires "vexbox >= 0.2.2"
 requires "libsha >= 1.0"
 requires "jsony >= 1.1.5"
 requires "jester >= 0.6.0"
