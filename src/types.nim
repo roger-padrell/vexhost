@@ -42,3 +42,10 @@ type
         user*: string
         branch*: string
         version*: string
+
+    BranchRequest* = object
+        auth*: Auth
+        reponame*: string
+        username*: string
+        branchName*: string
+        fromCommit*: string = "none" # commit id

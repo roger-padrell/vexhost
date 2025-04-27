@@ -1,4 +1,4 @@
-import fileManage, types, aes, jester, jsony, codes, repo, commit, strutils, clone, auth
+import fileManage, types, aes, jester, jsony, codes, repo, commit, strutils, clone, auth, branch
 
 const newUserKey = "new user.usernew"
 
@@ -33,6 +33,14 @@ routes:
             let decr = aes.decryptData(request.body, getUserFile(@"username").id);
             let js = decr.fromJson(CommitRequest)
             resp commit(js)
+        except:
+            resp badReq
+    
+    post "/branch/@username/@reponame":
+        try:
+            let decr = aes.decryptData(request.body, getUserFile(@"username").id);
+            let js = decr.fromJson(BranchRequest)
+            resp newBranch(js)
         except:
             resp badReq
 

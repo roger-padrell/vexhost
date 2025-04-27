@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.1.1"
 author        = "Roger Padrell Casar"
 description   = "A software to be an origin/host for vex repos"
 license       = "MIT"

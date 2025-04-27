@@ -9,5 +9,6 @@ Host/Origin for VEX repos
 - [x] `/clone/:username/:reponame/:version` clones repo (version is optional)
 - [x] `/data/:username/:reponame` gets repo data (no need for owner/editor acces)
 - [x] `/auth` Authenticates a User
+- [x] `/branch/:username/:reponame` Creates a branch
 - [x] AES
 - [x] Auth function
